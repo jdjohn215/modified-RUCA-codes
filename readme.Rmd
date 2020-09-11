@@ -27,7 +27,7 @@ To solve this problem, I create an additional code for "principal cities." Using
 
 A zip code which meets the following to conditions is classified as a "principal city zip." It must (1) be classified as RUCA code 1 (metropolitan core) ***and*** (2) a majority of its population must reside in a principal city.
 
-The resulting zipcode-to-modified-RUCA file is available to [download at this link](https://github.com/jdjohn215/modified-RUCA-codes/raw/master/Modified_RUCA_Zip_Codes_2010.csv). The zipcode to principal cities crosswalk is available in the `source-data` folder of this repository.
+The resulting zipcode-to-modified-RUCA file is available to [download at this link](https://github.com/jdjohn215/modified-RUCA-codes/raw/master/Modified_RUCA_Zip_Codes_2010.csv) (right-click and choose "save link as"). The zipcode to principal cities crosswalk is available in the `source-data` folder of this repository.
 
 The modified RUCA file also includes additional suggested summary classifications combining multiple existing codes.
 

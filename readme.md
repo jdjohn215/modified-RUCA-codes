@@ -41,9 +41,9 @@ reside in a principal city.
 
 The resulting zipcode-to-modified-RUCA file is available to [download at
 this
-link](https://github.com/jdjohn215/modified-RUCA-codes/raw/master/Modified_RUCA_Zip_Codes_2010.csv).
-The zipcode to principal cities crosswalk is available in the
-`source-data` folder of this repository.
+link](https://github.com/jdjohn215/modified-RUCA-codes/raw/master/Modified_RUCA_Zip_Codes_2010.csv)
+(right-click and choose “save link as”). The zipcode to principal cities
+crosswalk is available in the `source-data` folder of this repository.
 
 The modified RUCA file also includes additional suggested summary
 classifications combining multiple existing codes.
