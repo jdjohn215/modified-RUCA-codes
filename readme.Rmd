@@ -30,11 +30,11 @@ The modified RUCA file also includes additional suggested summary classification
 
 Here is a table showing the codes along with the number of zipcodes and total national population.
 
-```{r}
+```{r, message=FALSE}
 d %>%
   group_by(ruca_new, label_new, ruca6, ruca5) %>%
   summarise(zips = n(),
-            population = sum(pop)) %>%
+            population = sum(pop, na.rm = T)) %>%
   ungroup() %>%
   gt() %>%
   fmt_number(columns = 5:6, decimals = 0)
