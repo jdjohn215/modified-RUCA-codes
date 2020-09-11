@@ -3,7 +3,10 @@ Modified RUCA codes that distinguish between cities and suburbs
 John Johnson
 9/11/2020
 
-![](National_Static_RUCA_map.png)
+![](National_Static_RUCA_map.png) *[**Click
+here**](https://www.dropbox.com/s/yuiaxvj5smkwh1v/National_Interactive_RUCA_map.html?dl=1)
+to download a large (54MB) html file containing an interactive version
+of this static map.*
 
 [Rural-Urban Commuting Area
 Codes](https://www.ers.usda.gov/data-products/rural-urban-commuting-area-codes/)
