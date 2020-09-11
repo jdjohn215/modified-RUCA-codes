@@ -1,5 +1,5 @@
 ---
-title: "readme"
+title: "Modified RUCA codes that distinguish between cities and suburbs"
 author: "John Johnson"
 date: "9/11/2020"
 output: github_document
@@ -30,12 +30,13 @@ The modified RUCA file also includes additional suggested summary classification
 
 Here is a table showing the codes along with the number of zipcodes and total national population.
 
-```{r, message=FALSE}
+```{r, message=FALSE, warning=FALSE}
 d %>%
   group_by(ruca_new, label_new, ruca6, ruca5) %>%
   summarise(zips = n(),
             population = sum(pop, na.rm = T)) %>%
   ungroup() %>%
-  gt() %>%
-  fmt_number(columns = 5:6, decimals = 0)
+  mutate(zips = prettyNum(zips, big.mark = ","),
+         population = prettyNum(population, big.mark = ",")) %>%
+  knitr::kable()
 ```
