@@ -3,6 +3,8 @@ Modified RUCA codes that distinguish between cities and suburbs
 John Johnson
 9/11/2020
 
+![](National_Static_RUCA_map.png)
+
 [Rural-Urban Commuting Area
 Codes](https://www.ers.usda.gov/data-products/rural-urban-commuting-area-codes/)
 (RUCA) are created by the USDA to “classify U.S. census tracts using
