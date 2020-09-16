@@ -45,3 +45,10 @@ d %>%
 ```
 
 
+**Errata** 
+
+An initial version of this dataset failed to pad zipcodes which begin with 0. Most notably, this resulted in Boston and other New England cities failing to be coded as a "principal city."
+
+I identify principal cities using the [March 2020 Census Bureau Delineation file](https://www.census.gov/geographies/reference-files/time-series/demo/metro-micro/delineation-files.html). However, the crosswalk used to match Census places to ZCTAs uses 2010 place definitions. Consequently, one principal city, Macon-Bibb, Georgia fails to be added to the dataset using this method. Macon-Bibb became a consolidated city-county principal city in 2014. To account for this, I've coded all zipcodes which lie within Macon County as "principal cities" regardless of their previous RUCA code.
+
+Principal city place codes for Puerto Rico do not match 2010 values, so I have removed Puerto Rico from the dataset.

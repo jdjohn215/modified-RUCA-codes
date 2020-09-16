@@ -54,14 +54,33 @@ population.
 
 | ruca\_new | label\_new                                                                                  | ruca6                 | ruca5                | zips   | population  |
 | --------: | :------------------------------------------------------------------------------------------ | :-------------------- | :------------------- | :----- | :---------- |
-|         0 | Principal city                                                                              | Principal city        | Principal city       | 4,889  | 138,081,616 |
-|         1 | Suburban core                                                                               | Suburban core         | Suburban core        | 11,816 | 107,970,142 |
-|         2 | Metropolitan area high commuting: primary flow 30% or more to a UA                          | Exurbs                | Exurbs               | 7,050  | 26,168,232  |
+|         0 | Principal city                                                                              | Principal city        | Principal city       | 5,124  | 143,397,185 |
+|         1 | Suburban core                                                                               | Suburban core         | Suburban core        | 11,418 | 99,403,826  |
+|         2 | Metropolitan area high commuting: primary flow 30% or more to a UA                          | Exurbs                | Exurbs               | 7,047  | 26,156,495  |
 |         3 | Metropolitan area low commuting: primary flow 10% to 30% to a UA                            | Exurbs                | Exurbs               | 898    | 2,143,212   |
-|         4 | Micropolitan area core: primary flow within an Urban Cluster of 10,000 to 49,999 (large UC) | Large towns (10-50k)  | Large towns (10-50k) | 2,205  | 22,453,157  |
+|         4 | Micropolitan area core: primary flow within an Urban Cluster of 10,000 to 49,999 (large UC) | Large towns (10-50k)  | Large towns (10-50k) | 2,201  | 22,359,737  |
 |         5 | Micropolitan high commuting: primary flow 30% or more to a large UC                         | Large towns (10-50k)  | Large towns (10-50k) | 2,789  | 5,192,965   |
 |         6 | Micropolitan low commuting: primary flow 10% to 30% to a large UC                           | Large towns (10-50k)  | Large towns (10-50k) | 636    | 1,113,485   |
-|         7 | Small town core: primary flow within an Urban Cluster of 2,500 to 9,999 (small UC)          | Small towns (2.5-10k) | Rural (less than 10k | 2,042  | 11,252,065  |
+|         7 | Small town core: primary flow within an Urban Cluster of 2,500 to 9,999 (small UC)          | Small towns (2.5-10k) | Rural (less than 10k | 2,039  | 11,226,057  |
 |         8 | Small town high commuting: primary flow 30% or more to a small UC                           | Small towns (2.5-10k) | Rural (less than 10k | 1,378  | 1,933,200   |
 |         9 | Small town low commuting: primary flow 10% to 30% to a small UC                             | Small towns (2.5-10k) | Rural (less than 10k | 538    | 816,103     |
-|        10 | Rural areas: primary flow to a tract outside a UA or UC                                     | Isolated rural        | Rural (less than 10k | 6,903  | 9,127,889   |
+|        10 | Rural areas: primary flow to a tract outside a UA or UC                                     | Isolated rural        | Rural (less than 10k | 6,900  | 9,125,022   |
+
+**Errata**
+
+An initial version of this dataset failed to pad zipcodes which begin
+with 0. Most notably, this resulted in Boston and other New England
+cities failing to be coded as a “principal city.”
+
+I identify principal cities using the [March 2020 Census Bureau
+Delineation
+file](https://www.census.gov/geographies/reference-files/time-series/demo/metro-micro/delineation-files.html).
+However, the crosswalk used to match Census places to ZCTAs uses 2010
+place definitions. Consequently, one principal city, Macon-Bibb, Georgia
+fails to be added to the dataset using this method. Macon-Bibb became a
+consolidated city-county principal city in 2014. To account for this,
+I’ve coded all zipcodes which lie within Macon County as “principal
+cities” regardless of their previous RUCA code.
+
+Principal city place codes for Puerto Rico do not match 2010 values, so
+I have removed Puerto Rico from the dataset.
