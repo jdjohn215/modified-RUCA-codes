@@ -4,7 +4,7 @@ John Johnson
 9/11/2020
 
 ![](National_Static_RUCA_map.png) *[**Click
-here**](https://www.dropbox.com/s/yuiaxvj5smkwh1v/National_Interactive_RUCA_map.html?dl=1)
+here**](https://www.dropbox.com/s/yg1l54nbkcbj3mg/National_Interactive_RUCA_map.html?dl=1)
 to download a large (54MB) html file containing an interactive version
 of this static map.*
 

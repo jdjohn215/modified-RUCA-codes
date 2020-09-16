@@ -17,7 +17,7 @@ d <- modified.ruca %>% left_join(zip.pop)
 ```
 
 ![](National_Static_RUCA_map.png)
-*[**Click here**](https://www.dropbox.com/s/yuiaxvj5smkwh1v/National_Interactive_RUCA_map.html?dl=1) to download a large (54MB) html file containing an interactive version of this static map.*
+*[**Click here**](https://www.dropbox.com/s/yg1l54nbkcbj3mg/National_Interactive_RUCA_map.html?dl=1) to download a large (54MB) html file containing an interactive version of this static map.*
 
 [Rural-Urban Commuting Area Codes](https://www.ers.usda.gov/data-products/rural-urban-commuting-area-codes/) (RUCA) are created by the USDA to "classify U.S. census tracts using measures of population density, urbanization, and daily commuting." The USDA also provides a zip code-based RUCA file. These are particularly useful for public opinion researchers who know an interview respondent's zipcode but possibly little other geographic information.
 
