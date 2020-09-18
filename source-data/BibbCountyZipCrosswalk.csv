@@ -1,0 +1,14 @@
+state,zcta5,county,stab,cntyname,zipname,pop14,afact
+State code,ZIP census tabulation area,County code,State abbreviation,County name,ZCTA name,Pop 2014 estimate from county-level estimates,zcta5 to county allocation factor
+13,31020,13021,GA,Bibb GA,"Dry Branch, GA",319.59,1
+13,31052,13021,GA,Bibb GA,"Lizella, GA",6498.666,1
+13,31066,13021,GA,Bibb GA,"Musella, GA",23.747,1
+13,31201,13021,GA,Bibb GA,"Macon, GA",8668.516,1
+13,31204,13021,GA,Bibb GA,"Macon, GA",31149.667,1
+13,31206,13021,GA,Bibb GA,"Macon, GA",28765.107,1
+13,31207,13021,GA,Bibb GA,"Macon, GA",963.718,1
+13,31210,13021,GA,Bibb GA,"Macon, GA",28025.004,1
+13,31211,13021,GA,Bibb GA,"Macon, GA",8724.915,1
+13,31216,13021,GA,Bibb GA,"Macon, GA",15938.949,1
+13,31217,13021,GA,Bibb GA,"Macon, GA",12233.482,1
+13,31220,13021,GA,Bibb GA,"Macon, GA",12593.639,1
