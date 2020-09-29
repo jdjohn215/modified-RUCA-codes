@@ -69,5 +69,5 @@ population.
 
 **Errata**
 
-This dataset has gone through several improvement and corrections. For
+This dataset has gone through several improvements and corrections. For
 details, please contact John D. Johnson.
