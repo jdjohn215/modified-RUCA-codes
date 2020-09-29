@@ -1,23 +1,13 @@
 library(tidyverse)
 
 # crosswalk from here: http://mcdc.missouri.edu/applications/geocorr2014.html
-# principal cities from here: https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2020/delineation-files/list2_2020.xls
-zips.to.place <- read_csv("source-data/ZCTA_Principal_City_Place_Crosswalk.csv",
+zips.to.place <- read_csv("source-data/AllZips2010_to_AllPlaces2014_crosswalk.csv",
                           skip = 1) %>%
-  janitor::clean_names()
-
-# One 2020 principal city isn't included in the 2010 Place FIPS data used to build the crosswalk
-# this is Macon-Bibb, GA which became a consolidated city-county government in 2014.
-# I add the zipcodes for this new principal city in this step
-macon.bibb.zips <- read_csv("source-data/BibbCountyZipCrosswalk.csv",
-                            skip = 1) %>%
   janitor::clean_names() %>%
-  rename(place_name = county_name,
-         zcta5_to_placefp_allocation_factor = zcta5_to_county_allocation_factor) %>%
-  mutate(place_name = "Macon-Bibb, GA")
-
-zips.to.place <- bind_rows(zips.to.place, macon.bibb.zips) %>%
-  mutate(zip_census_tabulation_area = str_pad(zip_census_tabulation_area, width = 5, side = "left", pad = "0"))
+  mutate(zip_census_tabulation_area = str_pad(zip_census_tabulation_area, width = 5, side = "left", pad = "0")) %>%
+  # create properly formatted place FIPS code with state code
+  mutate(place_fip = paste0(str_pad(state_code, width = 2, side = "left", pad = "0"),
+                            str_pad(placefp14, width = 5, side = "left", pad = "0")))
 
 # RUCA from here https://www.ers.usda.gov/data-products/rural-urban-commuting-area-codes/
 ruca2010 <- readxl::read_excel("source-data/RUCA2010zipcode.xlsx", sheet = 2) %>%
@@ -35,15 +25,26 @@ primary.ruca.codes
 # principal city zip codes are ZCTAs where a majority of the population
 # lives in the principal city of a Metropolitan Statistical Area AND
 # the zip code is given RUCA code #1 for metropolitan area core
+# principal cities from here: https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2020/delineation-files/list2_2020.xls
+principal.city.fips <- readxl::read_excel("source-data/ListOfCBSA_PrincipalCitiesMarch2020.xls",
+                                          skip = 2) %>%
+  janitor::clean_names() %>%
+  # just keep METROpolitan statistical areas
+  filter(metropolitan_micropolitan_statistical_area == "Metropolitan Statistical Area") %>%
+  # create place FIPS code with state code
+  mutate(principal_city_fip = paste0(fips_state_code, fips_place_code))
 
 principal.city.zips <- zips.to.place %>%
-  filter(zcta5_to_placefp_allocation_factor > 0.5) %>%
+  # just keep the place FIPS which are in the list of principal city place FIPS
+  filter(place_fip %in% principal.city.fips$principal_city_fip) %>%
+  # just keep if more than half the population lives in the principal city
+  filter(zcta5_to_placefp14_allocation_factor > 0.5) %>%
   group_by(zip_code = zip_census_tabulation_area) %>%
-  summarise() %>%
-  # filter for zips coded to  RUCA 1 OR special case of Macon-Bibb where
-  # all zipcodes are upgraded to principal city
-  filter(zip_code %in% ruca2010$zip_code[ruca2010$ruca1 == 1] |
-           zip_code %in% macon.bibb.zips$zip_census_tabulation_area)
+  summarise()
+
+# Are all the 2020 principal city places in the 2014 places list?
+# all the missing ones are from Puerto Rico, which I remove from the data below
+principal.city.fips$cbsa_title[! principal.city.fips$principal_city_fip %in% zips.to.place$place_fip]
 
 new.ruca <- ruca2010 %>%
   select(zip_code, state, ruca_original = ruca1) %>%

@@ -23,7 +23,7 @@ d <- modified.ruca %>% left_join(zip.pop)
 
 The basic RUCA codes use a single code for [urbanized areas](https://www.census.gov/programs-surveys/geography/about/faq/2010-urban-area-faq.html)--a broad Census Bureau designation which includes basically all the built-up parts of a Metropolitan Statistical Area. Public opinion researchers typically want to distinguish between "urban" and "suburban" communities, both of which are included in the Census definition of "urbanized areas" and thus also RUCA code #1.
 
-To solve this problem, I create an additional code for "principal cities." Using the [Missouri Census Data Center's Geographic Correspondence Engine](http://mcdc.missouri.edu/applications/geocorr2014.html), I created a population-weighted crosswalk between ZCTAs (zip codes) and the census-designated [principal cities of metropolitan statistical areas](https://www.census.gov/geographies/reference-files/time-series/demo/metro-micro/delineation-files.html) (as of 2020). I exclude the principal cities of *micro*politan statistical areas.
+To solve this problem, I create an additional code for "principal cities." Using the [Missouri Census Data Center's Geographic Correspondence Engine](http://mcdc.missouri.edu/applications/geocorr2014.html), I created a population-weighted crosswalk between 2010 ZCTAs (zip codes) and 2014 places. I then identify the census-designated [principal cities of metropolitan statistical areas](https://www.census.gov/geographies/reference-files/time-series/demo/metro-micro/delineation-files.html) (as of 2020). I exclude the principal cities of *micro*politan statistical areas.
 
 A zip code which meets the following to conditions is classified as a "principal city zip." It must (1) be classified as RUCA code 1 (metropolitan core) ***and*** (2) a majority of its population must reside in a principal city.
 
@@ -47,8 +47,4 @@ d %>%
 
 **Errata** 
 
-An initial version of this dataset failed to pad zipcodes which begin with 0. Most notably, this resulted in Boston and other New England cities failing to be coded as a "principal city."
-
-I identify principal cities using the [March 2020 Census Bureau Delineation file](https://www.census.gov/geographies/reference-files/time-series/demo/metro-micro/delineation-files.html). However, the crosswalk used to match Census places to ZCTAs uses 2010 place definitions. Consequently, one principal city, Macon-Bibb, Georgia fails to be added to the dataset using this method. Macon-Bibb became a consolidated city-county principal city in 2014. To account for this, I've coded all zipcodes which lie within Macon County as "principal cities" regardless of their previous RUCA code.
-
-Principal city place codes for Puerto Rico do not match 2010 values, so I have removed Puerto Rico from the dataset.
+This dataset has gone through several improvement and corrections. For details, please contact John D. Johnson.
