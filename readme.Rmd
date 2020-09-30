@@ -25,7 +25,7 @@ The basic RUCA codes use a single code for [urbanized areas](https://www.census.
 
 To solve this problem, I create an additional code for "principal cities." Using the [Missouri Census Data Center's Geographic Correspondence Engine](http://mcdc.missouri.edu/applications/geocorr2014.html), I created a population-weighted crosswalk between 2010 ZCTAs (zip codes) and 2014 places. I then identify the census-designated [principal cities of metropolitan statistical areas](https://www.census.gov/geographies/reference-files/time-series/demo/metro-micro/delineation-files.html) (as of 2020). I exclude the principal cities of *micro*politan statistical areas.
 
-A zip code which meets the following to conditions is classified as a "principal city zip." It must (1) be classified as RUCA code 1 (metropolitan core) ***and*** (2) a majority of its population must reside in a principal city.
+A zip code is classified as a "principal city zip" if a majority of the population resides in a principal city.
 
 The resulting zipcode-to-modified-RUCA file is available to [download at this link](https://github.com/jdjohn215/modified-RUCA-codes/raw/master/Modified_RUCA_Zip_Codes_2010.csv) (right-click and choose "save link as"). The zipcode to principal cities crosswalk is available in the `source-data` folder of this repository.
 

@@ -35,10 +35,8 @@ areas](https://www.census.gov/geographies/reference-files/time-series/demo/metro
 (as of 2020). I exclude the principal cities of *micro*politan
 statistical areas.
 
-A zip code which meets the following to conditions is classified as a
-“principal city zip.” It must (1) be classified as RUCA code 1
-(metropolitan core) ***and*** (2) a majority of its population must
-reside in a principal city.
+A zip code is classified as a “principal city zip” if a majority of the
+population resides in a principal city.
 
 The resulting zipcode-to-modified-RUCA file is available to [download at
 this

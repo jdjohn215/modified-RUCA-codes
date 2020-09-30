@@ -23,8 +23,7 @@ primary.ruca.codes <- readxl::read_excel("source-data/RUCA2010zipcode.xlsx",
 primary.ruca.codes
 
 # principal city zip codes are ZCTAs where a majority of the population
-# lives in the principal city of a Metropolitan Statistical Area AND
-# the zip code is given RUCA code #1 for metropolitan area core
+# lives in the principal city of a Metropolitan Statistical Area
 # principal cities from here: https://www2.census.gov/programs-surveys/metro-micro/geographies/reference-files/2020/delineation-files/list2_2020.xls
 principal.city.fips <- readxl::read_excel("source-data/ListOfCBSA_PrincipalCitiesMarch2020.xls",
                                           skip = 2) %>%
