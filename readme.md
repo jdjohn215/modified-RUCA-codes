@@ -65,6 +65,25 @@ population.
 |         9 | Small town low commuting: primary flow 10% to 30% to a small UC                             | Small towns (2.5-10k) | Rural (less than 10k | 538    | 816,103     |
 |        10 | Rural areas: primary flow to a tract outside a UA or UC                                     | Isolated rural        | Rural (less than 10k | 6,899  | 9,124,824   |
 
+**Application examples**
+
+For example uses of these RUCA codes see:
+
+  - “[The suburbs constituted the base of the GOP in Wisconsin for
+    years. Now they’re up for
+    grabs](https://www.jsonline.com/story/news/politics/analysis/2020/10/24/election-2020-wisconsin-suburbs-up-grabs/3740548001/?utm_campaign=snd-autopilot),”
+    Craig Gilbert, *Milwaukee Journal Sentinel*, 24 October 2020.
+
+  - “[Why Trump is Losing White Suburban
+    Women](https://fivethirtyeight.com/features/why-trump-is-losing-white-suburban-women/),”
+    Meredith Conroy, Amelia Thomson-DeVeaux, and Erin Cassese,
+    FiveThirtyEight.com, 20 October 2020.
+
+  - [Build your own modified RUCA
+    crosstabs](https://lubarcenter.shinyapps.io/MLSPCrosstabs/) using
+    Wisconsin polling data from the [Marquette Law School
+    Poll](https://law.marquette.edu/poll/).
+
 **Errata**
 
 This dataset has gone through several improvements and corrections. For
